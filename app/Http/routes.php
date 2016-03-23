@@ -21,6 +21,7 @@ Route::get('clients', function () {
 
 Route::get('/packages',['uses' => 'packagetableController@packages'])->name('packages');
 Route::post('/packages','packagetableController@new_package')->name('new_package');
+Route::get('jsonOutputView', 'JsonOutput@index');
 
 /*
 |--------------------------------------------------------------------------
