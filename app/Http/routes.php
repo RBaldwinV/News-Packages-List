@@ -11,17 +11,17 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// LISTA DE REPORTAJES
+Route::get('stories', 'Stories@stories');
+Route::get('updateStory/{id}', 'Stories@updateStory');
 
-Route::get('clients', function () {
-    return view('clients');
-});
+// AÑADIR UN REPORTAJE + VIDEO
+Route::get('addVideo', 'AddVideo@addVideoGet');
+Route::post('addVideo', 'AddVideo@addVideoPost');
 
-Route::get('/packages',['uses' => 'packagetableController@packages'])->name('packages');
-Route::post('/packages','packagetableController@new_package')->name('new_package');
-Route::get('jsonOutputView', 'JsonOutput@index');
+// AÑADIR UN DOCUMENTO
+Route::get('addDocument', 'AddDocument@addDocumentGet');
+Route::post('addDocument', 'AddDocument@addDocumentPost');
 
 /*
 |--------------------------------------------------------------------------
@@ -36,4 +36,10 @@ Route::get('jsonOutputView', 'JsonOutput@index');
 
 Route::group(['middleware' => ['web']], function () {
     //
+});
+
+Route::group(['middleware' => 'web'], function () {
+    Route::auth();
+
+    Route::get('/home', 'HomeController@index');
 });
