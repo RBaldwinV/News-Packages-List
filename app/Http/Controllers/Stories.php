@@ -20,12 +20,12 @@ public function stories() {
 
 public function updateStory($id) {
 	
-	$story= StoriesTableFinal::find($id);
+	$story= StoriesTable::find($id);
 	$story->ready = !$story->ready;
 
 	$story->save();
 	
-$stories= StoriesTableFinal::all();
+$stories= StoriesTable::all();
 return view("frontend.storiestable",["stories"=>$stories]);
         
     }

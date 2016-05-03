@@ -7,13 +7,12 @@ use App\DocumentsTable;
 use App\StoriesTable;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use Illuminate\Routing\Redirector;
 
 class AddDocument extends Controller
 {
-	public function addDocumentGet() {
-		$stories= StoriesTable::all();
-
-		return view("frontend.adddocument", ["stories"=>$stories]);
+	public function addDocumentGet($id) {
+		return view("frontend.adddocument", ["id"=>$id]);
     }
     public function addDocumentPost(Request $request) {
 
@@ -24,16 +23,14 @@ class AddDocument extends Controller
 
         $storyRecord->documents()->save($documentRecord);
 
-        $documentName= 'document'.$documentRecord->id.'.'.$request->file('document')->getClientOriginalExtension();
+        $documentName= $documentRecord->title.'.'.$request->file('document')->getClientOriginalExtension();
 
-		$request->file('document')->move(
-            base_path().'/public/documents/', $documentName
-        );
+		$request->file('document')->move(base_path().'/public/files/'.$request->get('storyId').'/', $documentName);
 
-        $documentRecord->documentUrl= base_path().'/public/documents/'.$documentName;
+        $documentRecord->document_url= '/files/'.$request->get('storyId').'/'.$documentName;
         $documentRecord->save();
 	
-		return Redirect::route('addDocument')
+		return redirect()->action('AddDocument@addDocumentGet', [$request->get('storyId')]);
 
     }
 }

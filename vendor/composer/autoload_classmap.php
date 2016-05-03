@@ -7,7 +7,7 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'DatabaseSeeder' => $baseDir . '/database/seeds/DatabaseSeeder.php',
-    'Documents' => $baseDir . '/database/migrations/2016_04_29_200905_Documents.php',
+    'Documents' => $baseDir . '/database/migrations/2016_05_02_220716_Documents.php',
     'File_Iterator' => $vendorDir . '/phpunit/php-file-iterator/src/Iterator.php',
     'File_Iterator_Facade' => $vendorDir . '/phpunit/php-file-iterator/src/Facade.php',
     'File_Iterator_Factory' => $vendorDir . '/phpunit/php-file-iterator/src/Factory.php',
@@ -511,7 +511,7 @@ return array(
     'SebastianBergmann\\RecursionContext\\Exception' => $vendorDir . '/sebastian/recursion-context/src/Exception.php',
     'SebastianBergmann\\RecursionContext\\InvalidArgumentException' => $vendorDir . '/sebastian/recursion-context/src/InvalidArgumentException.php',
     'SebastianBergmann\\Version' => $vendorDir . '/sebastian/version/src/Version.php',
-    'Stories' => $baseDir . '/database/migrations/2016_04_29_200830_Stories.php',
+    'Stories' => $baseDir . '/database/migrations/2016_05_02_234822_Stories.php',
     'TestCase' => $baseDir . '/tests/TestCase.php',
     'Text_Template' => $vendorDir . '/phpunit/php-text-template/src/Template.php',
 );

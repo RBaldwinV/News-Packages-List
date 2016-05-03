@@ -2,8 +2,6 @@
 <html>
     <head>
         <title>Add Document</title>
-
-        <link rel="stylesheet" href="https://cdn.rawgit.com/LeaVerou/awesomplete/gh-pages/awesomplete.css">
         
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 
@@ -45,37 +43,21 @@
     <body>
         <div class="container">
             <div class="content">
-                <div class="title">Add Document</div>
+                <div class="title"><a href="/stories/">&larr;</a>Add Document</div>
                
                       <!-- aqui va la forma que mete informacion a la base de datos -->
                
-                {!! Form::open(array('url'=>'addDocument','method'=>'POST', 'files'=>true) !!}
-                {!! Form::label('Story') !!}
-                {!! Form::input('storyId', array('id'->'autocomplete')) !!}
+                {!! Form::open(array('url'=>'addDocument','method'=>'POST', 'files'=>true)) !!}
+                <input name="storyId" type="hidden" value="{!! $id !!}">
 
                 {!! Form::label('Document Title') !!}
-                {!! Form::input('documentTitle') !!}
-
+                {!! Form::text('title') !!}
+                <br>    
                 {!! Form::label('Document') !!}
                 {!! Form::file('document') !!}
-
+                <br>
                 {!! Form::submit('Submit') !!}
                 {!! Form::close() !!}
-
-                <script src="https://cdn.rawgit.com/LeaVerou/awesomplete/gh-pages/awesomplete.min.js"></script>
-
-                <script type="text/javascript">
-                    var myInput = document.getElementById('autocomplete');
-                    new Awesomeplete(myInput, {
-                        autoFirst: true,
-                        minChars: 1,
-                        list: [
-                            @foreach($stories as $story)
-                                ['{!! $story->title !!}', '{!! $story->id !!}'],
-                            @endforeach
-                        ]
-                    });
-                </script>
                 
           
                 

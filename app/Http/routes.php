@@ -20,7 +20,7 @@ Route::get('addVideo', 'AddVideo@addVideoGet');
 Route::post('addVideo', 'AddVideo@addVideoPost');
 
 // AÑADIR UN DOCUMENTO
-Route::get('addDocument', 'AddDocument@addDocumentGet');
+Route::get('addDocument/{id}', 'AddDocument@addDocumentGet');
 Route::post('addDocument', 'AddDocument@addDocumentPost');
 
 /*

@@ -13,11 +13,11 @@ class Documents extends Migration
     public function up()
     {
       
-        Schema::create('documentstable', function (Blueprint $table) {
+        Schema::create('documents_table', function (Blueprint $table) {
         $table->increments('id');
         $table->string('title');
         $table->string('document_url');
-        $table->string('story_id');
+        $table->integer('stories_table_id');
         $table->timestamps();
         });
         

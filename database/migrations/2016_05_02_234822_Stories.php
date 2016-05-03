@@ -13,7 +13,7 @@ class Stories extends Migration
     public function up()
     {
        
-        Schema::create('storiestable', function (Blueprint $table) {
+        Schema::create('stories_table', function (Blueprint $table) {
         $table->increments('id');
         $table->string('title');
         $table->string('author');

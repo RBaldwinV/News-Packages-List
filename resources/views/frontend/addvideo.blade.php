@@ -43,20 +43,20 @@
     <body>
         <div class="container">
             <div class="content">
-                <div class="title">Add Video</div>
+                <div class="title"><a href="/stories/">&larr;</a>Add Video</div>
                
                       <!-- aqui va la forma que mete informacion a la base de datos -->
                
-            {!! Form::open(array('url'=>'addVideo','method'=>'POST', 'files'=>true) !!}
+            {!! Form::open(array('url'=>'addVideo','method'=>'POST', 'files'=>true)) !!}
             {!! Form::label('Title') !!}
-            {!! Form::input('title') !!}
-
+            {!! Form::text('title') !!}
+            <br>
             {!! Form::label('Author') !!}
-            {!! Form::input('author') !!}
-
+            {!! Form::text('author') !!}
+            <br>
             {!! Form::label('Video') !!}
             {!! Form::file('video') !!}
-
+            <br>
             {!! Form::submit('Submit') !!}
             {!! Form::close() !!}
 
